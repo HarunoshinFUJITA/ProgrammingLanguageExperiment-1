@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>課題1-2</title>
+    <script type="text/javascript">
+      function buttonClick(){
+        // getElementByIdを用いて、入力値を受け取る
+        let str = document.getElementById('inputText').value;
+        let keyword = document.getElementById('keyword').value;
+
+        // キーワードがすべて消えるまで繰り返す
+        // while(str.indexOf(keyword) >= 0){
+          // let ret = str.replace(keyword, "");
+        // }
+        let ret = str.replace(keyword, "");
+
+        // アラートで経過日数と経過週数を計算する
+        alert("出力：" + ret);
+      }
+    </script>
+  </head>
+  <body>
+    <div align="center">
+      <p>
+        <label>
+          文字列入力：
+          <input type="text" id="inputText">
+        </label>
+        <br>
+        <label>
+          キーワード：
+          <input type="text" id="keyword">
+        </label>
+        <br>
+        <input type="button" value="Check" id="checkButton" onclick="buttonClick();">
+      </p>
+    </div>
+  </body>
+</html>

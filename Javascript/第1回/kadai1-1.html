@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>課題1-1</title>
+    <script type="text/javascript">
+      function buttonClick(){
+        // getElementByIdを用いて、入力値を受け取る
+        const startYear = document.getElementById('startyearText').value;
+        const startMonth = document.getElementById('startmonthText').value;
+        const startDay = document.getElementById('startdayText').value;
+        
+        const endYear = document.getElementById('endyearText').value;
+        const endMonth = document.getElementById('endmonthText').value;
+        const endDay = document.getElementById('enddayText').value;
+
+        // 入力した値を、Date
+        const startDate = new Date(startYear, startMonth - 1, startDay);
+        const endDate = new Date(endYear, endMonth - 1, endDay);
+
+        // 経過日数を計算する
+        var keika_nissu = parseInt((endDate - startDate)/86400000);
+        // 経過週数を計算する
+        var keika_syusu = parseInt((endDate - startDate)/(86400000*7));
+        // アラートで経過日数と経過週数を計算する
+        alert("経過日数：" + keika_nissu + "　　経過週数：" + keika_syusu);
+      }
+    </script>
+  </head>
+  <body>
+    <div align="center">
+      <p>
+        <label>
+          開始日：
+          <input type="text" id="startyearText">年
+          <input type="text" id="startmonthText">月
+          <input type="text" id="startdayText">日
+        </label>
+        <br>
+        <label>
+          終了日：
+          <input type="text" id="endyearText">年
+          <input type="text" id="endmonthText">月
+          <input type="text" id="enddayText">日
+        </label>
+        <br>
+        <input type="button" value="Check" id="checkButton" onclick="buttonClick();">
+      </p>
+    </div>
+  </body>
+</html>

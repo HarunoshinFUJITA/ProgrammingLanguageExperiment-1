@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+// 配列を絶対値に関して昇順に並べ替える関数を用意
+void sort(int array[], int array_size){
+  // バブルソートを用いて並び替える。ただし、絶対値に関することに注意。
+  int i, j, temp;
+
+  for(i=0; i < (array_size - 1); i++){
+    for (j = (array_size - 1); j > i; j--){
+      // ここで絶対値の比較をする
+      if(abarray[i-1] > array[i]){
+       temp = numbers[j-1];
+       numbers[j-1] = numbers[j];
+       numbers[j] = temp;
+      }
+    }
+  }
+}
+
+int main(void)
+{
+  // 入力される実数を格納する配列を用意
+  // 正負混在した20個以上の実数を入力
+  　// bパターンのときはsort関数を用いる
+  // 各配列の値の和を求める
+  // 求めた値を出力する
+  
+  return 0;
+}

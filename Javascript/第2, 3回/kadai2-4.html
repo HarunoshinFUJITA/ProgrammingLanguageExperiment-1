@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>課題2-4</title>
+    <script type="text/javascript">
+      // 5つのウィンドウを指す配列変数を宣言
+      var subWindow0;
+      var subWindow1;
+      var subWindow2;
+      var subWindow3;
+      var subWindow4;
+
+      function createNewWindow(url, n){
+        // switch文を用いて、nの値で場合分け
+        switch(n){
+          case 0:
+            // windowオブジェクトのメソッドopenを用いて、新しいブラウザウィンドウを開く
+            subWindow0 = window.open(url, 'window0', 'width=400, height=600');
+            break;
+          case 1:
+            subWindow1 = window.open(url, 'window1', 'width=400, height=600');
+            break;
+          case 2:
+            subWindow2 = window.open(url, 'window2', 'width=400, height=600');
+            break;
+          case 3:
+            subWindow3 = window.open(url, 'window3', 'width=400, height=600');
+            break;
+          case 4:
+            subWindow4 = window.open(url, 'window4', 'width=400, height=600');
+            break;
+        }
+      }
+      function closeWindow(n){
+        switch(n){
+          case 0:
+            // windowオブジェクトのメソッドcloseを用いて、指定のブラウザを閉じる
+            subWindow0.close();
+            break;
+          case 1:
+            subWindow1.close();
+            break;
+          case 2:
+            subWindow2.close();
+            break;
+          case 3:
+            subWindow3.close();
+            break;
+          case 4:
+            subWindow4.close();
+            break;
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div align="center">
+        <table border="1">
+          <tr>
+            <th>ページ名</th>
+            <th></th>
+            <th></th>
+          </tr>
+          <tr>
+            <td>ASUS</td>
+            <td>
+              <button onclick="createNewWindow('https:\/\/www\.asus\.com\/jp\/', 0)">
+                open
+              </button>
+            </td>
+            <td>
+              <button onclick="closeWindow(0)">
+                close
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>DELL</td>
+            <td>
+              <button onclick="createNewWindow('https:\/\/www\.dell\.com\/ja-jp', 1)">
+                open
+              </button>
+            </td>
+            <td>
+              <button onclick="closeWindow(1)">
+                close
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>NEC</td>
+            <td>
+              <button onclick="createNewWindow('https:\/\/jpn\.nec\.com\/', 2)">
+                open
+              </button>
+            </td>
+            <td>
+              <button onclick="closeWindow(2)">
+                close
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>HP</td>
+            <td>
+              <button onclick="createNewWindow('https:\/\/www\.hp\.com\/jp-ja\/home\.html', 3)">
+                open
+              </button>
+            </td>
+            <td>
+              <button onclick="closeWindow(3)">
+                close
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>lenovo</td>
+            <td>
+              <button onclick="createNewWindow('https:\/\/www\.lenovo\.com\/', 4)">
+                open
+              </button>
+            </td>
+            <td>
+              <button onclick="closeWindow(4)">
+                close
+              </button>
+            </td>
+          </tr>
+        </table>
+    </div>
+  </body>
+</html>

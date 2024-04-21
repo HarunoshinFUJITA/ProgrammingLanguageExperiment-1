@@ -1,0 +1,35 @@
+<html>
+ <head>
+  <meta charset="utf-8">
+  <title>課題2-1</title>
+  <script type="text/javascript">
+  function start() {
+    document.write("<div align='center'><table border='1'>");
+    document.write("<tr style='background-color: #CCCCCC;'> <th>8<sup>2</sup>の位</th> <th>8<sup>1</sup>の位</th> <th>8<sup>0</sup>の位</th>")
+    // 以下を50回繰り返し、50個の行を出力する
+      for(let i=0; i < 50; i++){
+      // random()メソッドを用いて、各変数に８進数を代入
+      let sup_2 = Math.floor (Math.random ( ) * 8);
+      let sup_1 = Math.floor (Math.random ( ) * 8);
+      let sup_0 = Math.floor (Math.random ( ) * 8);
+
+      if(sup_2 == sup_1 && sup_1 == sup_0){
+        // 各桁の値が等しければ、文字を赤くした行を出力
+        document.write("<tr> <td><font color='red'>" + sup_2 + "</font></td><td><font color='red'>" + sup_1 + "</font></td><td><font color='red'>"+ sup_0 + "</font></td>");
+      }else{
+        // 通常は、文字の黒の行を出力
+        document.write("<tr> <td>" + sup_2 + "</td><td>" + sup_1 + "</td><td>"+ sup_0 + "</td>");
+      }
+    }
+  }
+  </script>
+ </head>
+ <body>
+  <div align="center">
+    <h1>3桁の8進数</h1>
+    <!-- ボタンがクリックされると、start関数を実行する -->
+    <input type="button" value="スタート" onclick="start()">
+  </form>
+  </div>
+ </body>
+</html>

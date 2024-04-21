@@ -1,0 +1,89 @@
+<html>
+ <head>
+  <meta charset="utf-8">
+  <title>課題4</title>
+  <script type="text/javascript">
+ 
+ // チャレンジ回数のグローバル変数を定義
+  var challenges_remaining = 20;
+  // 最大数をクリックした回数のグローバル変数を定義
+  var click_number_maximum = 0;
+  // 取得ポイントのグローバル変数を定義
+  var get_point = 0;
+
+  // スタートボタンの値の変更を行う関数
+  function changeSwitchValue(){
+    // スタートボタンの値を変える
+    document.g_switch.start_btn.value = challenges_remaining.toString();
+    // スタートボタンの値を代入した変数を一つ減らす
+    challenges_remaining--;
+  }
+
+  // 各スイッチの値を変更する関数
+  function changeSwitchNumber(){
+    let gs_1_number = Math.floor( Math.random() * 101);
+    let gs_2_number = Math.floor( Math.random() * 101);
+    let gs_3_number = Math.floor( Math.random() * 101);
+    let gs_4_number = Math.floor( Math.random() * 101);
+    let gs_5_number = Math.floor( Math.random() * 101);
+    document.g_switch.gs_1.value = gs_1_number.toString();
+    document.g_switch.gs_2.value = gs_2_number.toString();
+    document.g_switch.gs_3.value = gs_3_number.toString();
+    document.g_switch.gs_4.value = gs_4_number.toString();
+    document.g_switch.gs_5.value = gs_5_number.toString();
+  }
+
+  // チャレンジ回数が0になったら、各情報を表示する関数
+  function showInfo(){
+    document.getElementById("html_get_point").innerText = "取得ポイント：" + get_point.toString() + "点";
+  }
+
+  // スタートボタンが押された場合、ここから関数の実行が始まる
+  function start() {
+    // 一秒ごとに実行する
+    let timer = setInterval(function(){
+        changeSwitchValue();
+        changeSwitchNumber();
+        showInfo();
+        // スタートボタンの値が0になると、最大数のクリックした回数と取得ポイントを表示し、
+        // インターバルを終える。
+        if(challenges_remaining < 15){
+          clearInterval(timer);
+        }
+    }, 1000);
+  }
+  </script>
+ </head>
+ <body>
+  <div align="center">
+    <h1>最大数判定ゲーム</h1>
+    <form name="g_switch">
+
+      <!-- スタートボタンを用意 -->
+      <input type="button" name="start_btn" value="start" onclick="start()" style="width:50px; margin-bottom:10px;">
+      <br>
+      <!-- 5つのスイッチを配置 -->
+      <input type="button" name="gs_1" value="SW1" style="width:50px; height: 50px; font-size:20px;">
+      <input type="button" name="gs_2" value="SW2" style="width:50px; height: 50px; font-size:20px;">
+      <input type="button" name="gs_3" value="SW3" style="width:50px; height: 50px; font-size:20px;">
+      <input type="button" name="gs_4" value="SW4" style="width:50px; height: 50px; font-size:20px;">
+      <input type="button" name="gs_5" value="SW5" style="width:50px; height: 50px; font-size:20px;">
+      <br>
+    </form>
+    <form name="results_form">
+      <!-- 正解クリックの回数を数えるバーを用意 -->
+      <input type="range" name="correct" min="0" max="20" step="1" list="tlist" style="width: 280px; margin-top: 10px;" value="10">
+        <!-- スライダーに目盛りを付けたかったが、jQueryなどのライブラリを使わなければ大変なため割愛 -->
+        <datalist id="tlist">
+          <option value="0"></option>
+          <option value="10"></option>
+          <option value="20"></option>
+        </datalist>
+      <!-- 取得ポイントを出力 -->
+      <div id="html_get_point"></div>
+      <br>
+      <p>
+    </form>
+  </div>
+ </body>
+</html>
