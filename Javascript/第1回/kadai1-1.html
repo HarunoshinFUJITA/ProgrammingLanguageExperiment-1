@@ -19,11 +19,12 @@
         const endDate = new Date(endYear, endMonth - 1, endDay);
 
         // 経過日数を計算する
-        var keika_nissu = parseInt((endDate - startDate)/86400000);
+        var elapsed_days = parseInt((endDate - startDate)/86400000);
         // 経過週数を計算する
-        var keika_syusu = parseInt((endDate - startDate)/(86400000*7));
+        var elapsed_weeks = parseInt((endDate - startDate)/(86400000*7));
+
         // アラートで経過日数と経過週数を計算する
-        alert("経過日数：" + keika_nissu + "　　経過週数：" + keika_syusu);
+        alert("経過日数：" + elapsed_days + "　　経過週数：" + elapsed_weeks);
       }
     </script>
   </head>
@@ -44,7 +45,7 @@
           <input type="text" id="enddayText">日
         </label>
         <br>
-        <input type="button" value="Check" id="checkButton" onclick="buttonClick();">
+        <button onclick="buttonClick();">Check</button>
       </p>
     </div>
   </body>

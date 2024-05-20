@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>課題1-4</title>
+    <script>
+      function chengeImageSize() {
+        // 画像インスタンス生成
+        var image = document.images["Image"];
+        
+        // 表示されている画像のサイズで場合分け
+        if (image.width === 640) {
+          image.width = 320;
+          image.height = 240;
+        } else {
+          image.width = 640;
+          image.height = 480;
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div align="center">
+      <a onclick="chengeImageSize()">
+        <img src="img1.png" width="640" height="480" name="Image">
+      </a>
+    </div>
+  </body>
+</html>

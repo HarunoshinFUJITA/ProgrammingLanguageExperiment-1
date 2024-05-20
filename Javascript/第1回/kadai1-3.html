@@ -1,48 +1,48 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>課題1-3</title>
-  <script>
-    function generateTable() {
-      var n = parseInt(document.getElementById("inputN").value);
-      var m = parseInt(document.getElementById("inputM").value);
+  <head>
+    <title>課題1-3</title>
+    <script>
+      function generateTable() {
+        // nとmの入力を受け取る
+        var n = parseInt(document.getElementById("inputN").value);
+        var m = parseInt(document.getElementById("inputM").value);
 
-      document.write("<div align='center'><table border='1'>");
-      document.write("<tr><th>べき数</th>");
+        document.write("<div align='center'><table border='1'>");
+        document.write("<tr><th>べき数</th>");
 
-      // ヘッダ行の作成
-      document.write("<th>" + n + "</th>" + "<th>" + m + "</th>" + "<th>Sum</th></tr>");
+        // ヘッダ行の作成
+        document.write("<th>" + n + "</th>" + "<th>" + m + "</th>" + "<th>Sum</th></tr>");
 
-      // 各行の作成
-      var sumRow = 0;
-      var exp_n, exp_m;
-      for (var i = 0; i <= 5; i++) {
-        document.write("<tr><td>" + i + "</td>");
+        // 各行の作成
+        var sumRow = 0;
+        var exp_n, exp_m;
+        for (var i = 0; i <= 5; i++) {
+          document.write("<tr><td>" + i + "</td>");
 
-        // べき数の計算、セルの生成
-        var exp_n = Math.pow(n, i);
-        var exp_m = Math.pow(m, i);
-        document.write("<td>" + exp_n + "</td>");
-        document.write("<td>" + exp_m + "</td>");
+          // べき数の計算、セルの生成
+          var exp_n = Math.pow(n, i);
+          var exp_m = Math.pow(m, i);
+          document.write("<td>" + exp_n + "</td>");
+          document.write("<td>" + exp_m + "</td>");
 
-        // 行の和の計算、セルの生成
-        var rowSum = 0;
-        rowSum = exp_n + exp_m;
-        document.write("<td>" + rowSum + "</td></tr>");
+          // 行の和の計算、セルの生成
+          var rowSum = exp_n + exp_m;
+          document.write("<td>" + rowSum + "</td></tr>");
+        }
+
+        document.write("</table></div>");
       }
-
-      document.write("</table></div>");
-    }
-  </script>
-</head>
-<body>
-  <div align="center">
-    <h1>べき乗とその和の表</h1>
-    <p>
-      n: <input type="number" id="inputN">
-      m: <input type="number" id="inputM">
+    </script>
+  </head>
+  <body>
+    <div align="center">
+      <h1>べき乗とその和の表</h1>
+      <p>
+        n: <input type="number" id="inputN">
+        m: <input type="number" id="inputM">
+      </p>
       <button onclick="generateTable()">表を作成</button>
-    </p>
-  </div>
-</body>
+    </div>
+  </body>
 </html>

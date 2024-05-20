@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>課題1-5</title>
+    <script>
+      // 画像URLの配列
+      var images = ["img1.png", "img2.png", "img3.png"];
+      
+      // インターバルメソッド
+      var intervalMethod;
+
+      function startSlideshow() {
+        // 5秒間隔でsetInterval関数を実行
+        intervalMethod = setInterval(changeImage, 5000);
+      }
+
+      function stopSlideshow() {
+        // インターバルメソッドを停止
+        clearInterval(intervalMethod);
+      }
+
+      function changeImage() {
+        // ランダムに表示する画像のインデックス生成
+        var randomIndex = Math.floor(Math.random() * images.length);
+        
+        // 画像URLを置き換え
+        document.images["Image"].src = images[randomIndex];
+      }
+  </script>
+
+  </head>
+  <body>
+    <div align="center">
+      <img src="img1.png" name="Image" width="640" height="480">
+    <br>
+    <button onclick="startSlideshow()">スライドショー開始</button>
+    <button onclick="stopSlideshow()">スライドショー終了</button>
+    </div>
+  </body>
+</html>

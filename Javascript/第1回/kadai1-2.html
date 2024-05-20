@@ -6,17 +6,19 @@
     <script type="text/javascript">
       function buttonClick(){
         // getElementByIdを用いて、入力値を受け取る
-        let str = document.getElementById('inputText').value;
+        let input_string = document.getElementById('inputText').value;
         let keyword = document.getElementById('keyword').value;
+        let generating_string = input_string;
+        let keyword_count = 0;
 
         // キーワードがすべて消えるまで繰り返す
-        // while(str.indexOf(keyword) >= 0){
-          // let ret = str.replace(keyword, "");
-        // }
-        let ret = str.replace(keyword, "");
+        while(generating_string.indexOf(keyword) >= 0){
+          generating_string = generating_string.replace(keyword, "");
+          keyword_count++;
+        }
 
-        // アラートで経過日数と経過週数を計算する
-        alert("出力：" + ret);
+        // アラートでキーワード数と新たな文字列を出力
+        alert("キーワードの個数：" + keyword_count + "　新たな文字列：" + generating_string);
       }
     </script>
   </head>
@@ -33,7 +35,7 @@
           <input type="text" id="keyword">
         </label>
         <br>
-        <input type="button" value="Check" id="checkButton" onclick="buttonClick();">
+        <button onclick="buttonClick();">Check</button>
       </p>
     </div>
   </body>
